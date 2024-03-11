@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles_it.css">
+    <link rel="icon" href="images/nezukoicon.ico">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script type="text/javascript" src="js/create_it.js"></script>
+
+    <p><img id="gotologo" src="images/GoTo_SLogo.png" alt="gotologo" width="92" height="41"></p>
+
+    <br><p style="text-align:center;"><img src="images/noclogo.png" alt="Logo" width="187" height="100"></p>
+
+<body style="background: rgba(0, 0, 0, 0.767)" body></body>
+
+</head>
+
+<form>
+
+    <title>NOC - Incidents Template</title>
+
+    <div>
+
+        <div class="center">
+            <h2><b>Incidents Template</b></h2>
+            <h5>Output will show the starting phase for: </h5>
+            <h6>External/Internal SPs, Comms Response</h6>
+            <select onchange="location = this.options[this.selectedIndex].value;">
+                <option value="#">GoTo Another Template</option>
+                <option value="index.html">Incidents Template</option>
+                <option value="retrosp.html">Retrospective SPs</option>
+                <option value="slackupdates.html">Slack Status Update</option>
+                <option value="cabtemplate.html">CAB - External MA</option>
+            </select>
+        </div><br>
+
+        <div class="mb-3 row">
+            <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>Status Page Title (do NOT add a Product's name here)</strong></label>
+            <div class="col-sm-13">
+                <input type="text" id="sptittle" rows="1" cols="30" wrap="soft" class="form-control">
+            </div>
+        </div>
+
+        <label for="products"><strong>Choose your products:</strong></label><br>
+
+        <select id="products" class="form-select form-select-lg mb-3" multiple aria-label=".form-select-lg example">
+            <option value='GoTo Meeting'>GoTo Meeting</option>
+            <option value='GoTo Webinar'>GoTo Webinar</option>
+            <option value='GoTo Training'>GoTo Training</option>
+            <option value='OpenVoice'>OpenVoice</option>
+            <option value='LastPass'>LastPass</option>
+            <option value='GoTo Connect'>GoTo Connect</option>
+            <option value='Central/Pro'>Central/Pro</option>
+            <option value='GoToMyPC'>GoToMyPC</option>
+            <option value='GoTo Stage'>GoTo Stage</option>
+            <option value='Hamachi'>Hamachi</option>
+            <option value='GoTo Resolve '>GoTo Resolve </option>
+            <option value='Grasshopper'>Grasshopper</option>
+            <option value='join.me'>join.me</option>
+            <option value='Rescue'>Rescue</option>
+            <option value='Rescue Live Control'>Rescue Live Control</option>
+            <option value='GoTo Assist Remote Support v5'>GoTo Assist Remote Support v5</option>
+            <option value='GoTo Assist Remote Support v4'>GoTo Assist Remote Support v4</option>
+            <option value='GoTo Assist Service Desk'>GoTo Assist Service Desk</option>
+            <option value='GoTo Assist Corporate'>GoTo Assist Corporate</option>
+            <option value='GoTo Assist Seelt'>GoTo Assist Seelt</option>
+            <option value='Rescue Live Guide'>Rescue Live Guide</option>
+            <option value='Rescue Live Lens'>Rescue Live Lens</option>
+            <option value='GoTo Meeting API '>GoTo Meeting API </option>
+            <option value='GoTo Training API'>GoTo Training API</option>
+            <option value='GoTo Webinar API'>GoTo Webinar API</option>
+            <option value='GoTo Connect API '>GoTo Connect API </option>
+            <option value='GoTo Assist Service Desk API'>GoTo Assist Service Desk API</option>
+            <option value='GoTo Assist Remote Support API '>GoTo Assist Remote Support API </option>
+            <option value='GoTo Assist Corporate API '>GoTo Assist Corporate API </option>
+            <option value='GoTo Developer Center Frontend'>GoTo Developer Center Frontend</option>
+            <option value='Admin API '>Admin API </option>
+            <option value='SCIM API '>SCIM API </option>
+            <option value='Authentication API '>Authentication API </option>
+            <option value='GoTo Contact Center'>GoTo Contact Center</option>
+          </select>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"><strong>Customer Impact</strong></label>
+            <p style="font-size:11px">"We are actively investigating reports that some PRODUCT(s) customers may be..."
+            </p>
+            <textarea class="form-control" id="impact" rows="1"></textarea>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>Customer Reports</strong></label>
+            <div class="col-sm-13">
+                <input type="text" id="customerReports" rows="1" cols="30" wrap="soft" class="form-control">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>Slack Channel</strong></label>
+            <div class="col-sm-13">
+                <input type="text" id="slackChannel" rows="1" cols="30" wrap="soft" class="form-control">
+            </div>
+        </div>
+
+        <label><strong>Severity</strong></label>
+
+        <select id="incidentType">
+            <option value="P2">P2</option>
+            <option value="P1">P1</option>
+            <option value="P3">P3</option>
+        </select><br>
+
+        <br>
+
+    </div>
+
+    <button type="button" class="btn btn-success" onclick="createTemplate();">Create Templates </button>
+
+    <!--This might be used later on 
+    <button type="button" class="btn btn-danger" onclick="location.reload();">
+        Reset
+    </button> -->
+
+    <br><br>
+    <div class="center">
+    <button type="button" class="btn btn-warning btn-lg" onclick="createDraft();"><b>External Status Page Templates</b></button>
+    </div>
+    <br>
+
+    <!-- This is the Start of Part II for the Internal Status Page -->
+
+    <div class="center">
+        <h2><b>Incidents Template - Identified</b></h2>
+        <h5>Output will show the Identified statement for: </h5>
+        <h6>Internal Status Page & Comms Response</h6>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>Cause</strong></label>
+        <p style="font-size:11px">"Our engineers have identified the issue as being caused by..."</p>
+        <div class="col-sm-13">
+            <input type="text" id="cause" rows="1" cols="30" wrap="soft" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1"><strong>Actions being taken</strong></label>
+        <p style="font-size:11px">"Our engineers have identified the issue as being caused by [CAUSE] and are now..."</p>
+        <textarea class="form-control" id="actionsbeingtaken" rows="1"></textarea>
+    </div><br>
+
+    <br><button type="button" class="btn btn-success" onclick="createTemplateIdentified();">Create Template</button><br><br>
+
+    <!-- This is the Start of Part III for the Internal Status Page -->
+
+    <div class="center">
+        <h2><b>Incidents Template - Monitoring</b></h2>
+        <h5>Output will show the Monitoring statement for: </h5>
+        <h6>Internal Status Page & Comms Response</h6>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1"><strong>Completed action(s) for resolution</strong></label>
+        <textarea class="form-control" id="completedaction" rows="1"></textarea>
+    </div><br>
+
+    <br><button type="button" class="btn btn-success" onclick="createTemplateMonitoring();">Create Template</button><br><br>
+
+     <!-- This is the Start of Part IV for the Internal Status Page -->
+
+    <div class="center">
+        <h2><b>Incidents Template - Resolved</b></h2>
+        <h5>Output will show the closing statement for: </h5>
+        <h6>Internal Status Page, Comms Response & Outages_GoTo</h6>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>Root Cause</strong></label>
+        <div class="col-sm-13">
+            <input type="text" id="rootcause" rows="1" cols="30" wrap="soft" class="form-control">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>What was done to fix the issue?</strong></label>
+        <div class="col-sm-13">
+            <input type="text" id="fix" rows="1" cols="30" wrap="soft" class="form-control">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="inputCallerEmail" class="col-sm-10 col-form-label"><strong>Final Customer Reports</strong></label>
+        <div class="col-sm-13">
+            <input type="text" id="finalcustomerreports" rows="1" cols="30" wrap="soft" class="form-control">
+        </div>
+    </div>
+
+    <div class="table-responsive"><label><strong>At what time was the incident resolved? (UTC)</strong></label></div>
+            
+    <div class="">
+            <input type="datetime-local" id="dateTime" class="form-control" value="" />
+    </div>
+
+    <!-- This was previously used, but I'll leave it here in case its needed in the future.
+
+    <p style="font-size:11px">"Remember to add the dates below as UTC and not your timezone."</p>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive"><label><strong>Start - Date/Time</strong></label></div>
+            
+            <div class="">
+                    <input type="datetime-local" id="startDateTime" class="form-control" value="" />
+            </div><br>
+        </div>
+
+        <div class="col">
+            <div class="table-responsive"><label><strong>End - Date/Time</strong></label></div>
+            
+            <div class="">
+                    <input type="datetime-local" id="endDateTime" class="form-control" value="" />
+            </div><br>
+        </div>
+    </div> -->
+
+
+    <br><button type="button" class="btn btn-success" onclick="createTemplateComms();">Create Template</button><br><br>
+
+
+</form><br>
+
+<!--
+    <textarea class="test" name="text" id="temp" wrap="soft"></textarea><br><br>    
+    -->
+
+<footer>
+    <p>Copyright © 2022 - Designed by David Díaz<br>
+</footer>
+
+</html>
