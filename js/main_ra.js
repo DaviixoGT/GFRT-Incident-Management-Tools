@@ -76,6 +76,33 @@ let createPreview = () => {
 
   let finalIncidentsDate_LongDate = formatDate_LongFormat(getStartDate);
 
+  /* If a field was not filled up, we need to provide a generic wording such as [ISSUE]
+  so the user the identify which field lacks information*/
+
+  if (getProductsAsList.length === 0){
+
+    getProductsAsList = "[PRODUCT(S)]"
+
+  }
+
+  if (!getIssue){
+
+    getIssue = "[ISSUE]"
+
+  }
+
+  if (!getRootCause){
+
+    getRootCause = "[ROOT CAUSE]"
+
+  }
+
+  if (!getRemediation){
+
+    getRemediation = "[REMEDIATION]"
+
+  }
+
   rfo_url = template_signature_position[0];
   rfo_signature = template_signature_position[1]
   rfo_position = template_signature_position[2]
@@ -288,7 +315,7 @@ let validateProducts = (products) => {
   // If Grasshopper is the only value
   if (selectElement.length === 1 && selectElement.includes("Grasshopper")) {
     console.log("Validation 1");
-    rfo_template_link = "https://logmeininc.sharepoint.com/:w:/r/sites/GIS-Central/Shared%20Documents/NOC/RFOs/RFO%20-%20Template%20(Scott).docx?d=w599141d534dd48f7837957804b74d2ff&csf=1&web=1&e=N9Wip0";
+    rfo_template_link = "https://logmeininc.sharepoint.com/:w:/s/LearningfromIncidents/EZTI3psk4dFBs0VgF3hU22ABcDG87FPCLFZWbVCTB9ejKw?e=x5Igw8";
     signature = "Scott Manning";
     position = "Vice President, Product Growth";
   }
@@ -296,7 +323,7 @@ let validateProducts = (products) => {
   // If GoTo Meeting, Webinar, Training, OpenVoice or Join.me were selected
   else if (selectElement.length >= 1 && (selectElement.includes("GoTo Meeting") || selectElement.includes("GoTo Webinar") || selectElement.includes("GoTo Training") || selectElement.includes("OpenVoice") || selectElement.includes("join.me"))) {
     console.log("Validation 2");
-    rfo_template_link = "https://logmeininc.sharepoint.com/:w:/s/GIS-Central/EfZfRUjw6pNJojHDJpaZtycBvB2S2-LRvtHmEEonpxmOlQ?e=BYOm0S";
+    rfo_template_link = "https://logmeininc.sharepoint.com/:w:/s/LearningfromIncidents/ERrwq52yjSBNoKJp4JENNw8BfyrfVoxYOOP3w4aT_tWUgg?e=7W04mu";
     signature = "Madhusudan Krishnapuram";
     position = "Vice President, Engineering";
   }
@@ -304,7 +331,7 @@ let validateProducts = (products) => {
   // If product is not GTMWTO or Join.Me
   else if (selectElement.length === 1 && !(selectElement.includes("GoTo Meeting") || selectElement.includes("GoTo Webinar") || selectElement.includes("GoTo Training") || selectElement.includes("OpenVoice") || selectElement.includes("join.me"))) {
     console.log("Validation 3");
-    rfo_template_link = "https://logmeininc.sharepoint.com/:w:/r/sites/GIS-Central/Shared%20Documents/NOC/RFOs/RFO%20-%20Template%20(Simon).docx?d=we224f290c8fd435496dc296d1ec56892&csf=1&web=1&e=fayTSc";
+    rfo_template_link = "https://logmeininc.sharepoint.com/:w:/s/LearningfromIncidents/EaLJDIXg2ntNtIX4VeKEIVoBo65d3O_KwGZzy0_uZSJS5A?e=X8LeJz";
     signature = "Simon Perreault";
     position = "Vice President, Software Engineering";
   }
