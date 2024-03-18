@@ -155,7 +155,7 @@ let createPreview = () => {
     <h1>RFO's Preview</h1>
     <h2>Suggested file's name:</h2> <b>${filesName}</b>
     <h2>Suggested RFO Template to be used:</h2> <b>${finalSuggestedRFOUrl}</b><br><br>
-    <img src="/images/GoToLoGo.png" alt="Image" class="left-corner">
+    <img src="https://www.goto.com/-/media/images/shared/logos/goto/goto-with-banner/goto_rgb_black_yellow-png" alt="Image" class="left-corner">
       <p class="mytext">
       <b>Reason for Outage:</b> Content for Customer Consumption.<br><br>
 
